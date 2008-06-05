@@ -49,7 +49,6 @@ import fedora.server.access.FedoraAPIA;
 import fedora.client.FedoraClient;
 import org.meandre.core.ComponentContextProperties;
 import org.meandre.annotations.Component;
-import org.meandre.annotations.ComponentInput;
 import org.meandre.annotations.ComponentOutput;
 import org.meandre.annotations.ComponentProperty;
 import java.util.logging.Logger;
