@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
     Generic Build script for a Meandre Components repository. This file
-    should be kept in sync with build-skel.xml, which was last residing
-    in Developers/pgroves/component-repo-support subversion repository.
+    should be kept in sync with build-skel.xml,(TODO:which currently has no
+    permanent home.) 
 
     This build.xml provides targets useful in dealing with a repository of
     Meandre Components. These targets do things like generating rdf descriptors
