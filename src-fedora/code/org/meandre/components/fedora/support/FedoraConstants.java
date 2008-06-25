@@ -40,7 +40,7 @@
  * WITH THE SOFTWARE.
  */ 
 
-package org.seasr.meandre.components.fedora;
+package org.meandre.components.fedora.support;
 
 public class FedoraConstants {
 	

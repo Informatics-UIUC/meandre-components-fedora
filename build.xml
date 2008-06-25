@@ -33,7 +33,8 @@
         <copy todir="${src.copy.dir}"
               includeEmptyDirs="yes"
               preservelastmodified="yes">
-              <fileset dir="src/" includes="**/*"/>
+              <fileset dir="src-fedora/code" includes="**/*"/>
+        	  <fileset dir="src-fedora/test" includes="**/*"/>
         </copy>
 
     </target>
@@ -70,7 +71,7 @@
     -->
 
     <!-- Project structure -->
-    <property name="lib.dir" value="lib/"/>
+    <property name="lib.dir" value="lib/jars"/>
     <property name="build.dir" value="build/"/>
     <property name="classes.dir" value="${build.dir}/classes/"/>
     <property name="src.gen.dir" value="${build.dir}/src-gen/"/>

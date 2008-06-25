@@ -40,7 +40,7 @@
  * WITH THE SOFTWARE.
  */ 
 
-package org.seasr.meandre.components.fedora;
+package org.meandre.components.fedora;
 
 import java.util.logging.Logger;
 
@@ -56,6 +56,7 @@ import org.meandre.annotations.ComponentProperty;
 import fedora.server.access.FedoraAPIA;
 import fedora.server.types.gen.MIMETypedStream;
 import fedora.server.types.gen.Property;
+import org.meandre.components.fedora.support.FedoraConstants;
 
 /**
  * 
