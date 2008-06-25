@@ -91,11 +91,10 @@ import org.meandre.components.fedora.support.FedoraConstants;
 		"jaxrpc.jar", "jhbasic.jar", "jrdf-0.3.3.jar", "log4j-1.2.14.jar",
 		"mail.jar", "mets-merge.xsl", "saaj.jar", "saxon.jar",
 		"sunxacml-patched.jar", "trippi-1.1.2-core.jar", "wsdl4j-1.5.1.jar", "xercesImpl.jar",
-		"xml-apis.jar", "commons-httpclient-3.1.jar", "commons-logging-1.1.1.jar", 
-		"fedora-client.jar", "icu4j-3.8.1.jar", "icu4j-charsets-3.8.1.jar", "jarjar-1.0rc7.jar", 
+		"xml-apis.jar", "commons-httpclient-3.1-beta1.jar", "commons-logging.jar", 
+		"fedora-client.jar", "icu4j-3.8.1.jar", "icu4j-charsets-3.8.1.jar",  
 		"jena-2.5.5.jar", "jena-arq-2.5.5.jar", "jena-arq-extra-2.5.5.jar", "jena-iri-2.5.5.jar", 
-		"jena-json-2.5.5.jar", "meandre-annotation-1.3.jar", "meandre-component-devkit-1.0.5.jar", 
-		"meandre-core-1.3.jar"}
+		"jena-json-2.5.5.jar"}
 		)
 public class FedoraClientComponent implements ExecutableComponent {
 
@@ -110,7 +109,7 @@ public class FedoraClientComponent implements ExecutableComponent {
 	description="The host name of the Fedora server.", 
 	name="HOST",
     defaultValue="localhost")
-	public static final String HOST = "HOST:PORT";
+	public static final String HOST = "HOST";
 	
 	@ComponentProperty(
 	description="The fedora port", name="PORT",
@@ -194,9 +193,14 @@ public class FedoraClientComponent implements ExecutableComponent {
 			port = cc.getProperty(PORT);
 			user = cc.getProperty(USER);
 			pass = cc.getProperty(PWORD);
+	System.out.println("HOST is: "+host);
+	System.out.println("PORT is: "+port);
+	System.out.println("USER is: "+user);
+	System.out.println("PWORD is: "+pass);
 
 
 			fedoraURL = protocol+"://"+host+":"+port+"/fedora";
+	System.out.println("fedoraURL is: "+fedoraURL);
 	
 			logger.info("FedoraURL: "+fedoraURL);
 

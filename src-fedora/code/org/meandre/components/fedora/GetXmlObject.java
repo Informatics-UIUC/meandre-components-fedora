@@ -82,7 +82,18 @@ import org.meandre.components.fedora.support.FedoraConstants;
 creator="Mary Pietrowicz", 
 description="Gets an object XML for a resource in a Fedora store.",
 tags="fedora XML", 
-name="GetXmlObject")
+name="GetXmlObject",
+	dependency={"activation-1.0.2.jar", "axis.jar", "batik-all.jar", "commons-codec-1.3.jar",
+		"commons-dbcp-1.2.1.jar", "commons-discovery.jar", "commons-pool-1.2.jar",
+		"foxml-merge.xsl", "jai_codec.jar", "jai_core.jar", "java-getopt-1.0.11.jar",
+		"jaxrpc.jar", "jhbasic.jar", "jrdf-0.3.3.jar", "log4j-1.2.14.jar",
+		"mail.jar", "mets-merge.xsl", "saaj.jar", "saxon.jar",
+		"sunxacml-patched.jar", "trippi-1.1.2-core.jar", "wsdl4j-1.5.1.jar", "xercesImpl.jar",
+		"xml-apis.jar", "commons-httpclient-3.1-beta1.jar", "commons-logging.jar", 
+		"fedora-client.jar", "icu4j-3.8.1.jar", "icu4j-charsets-3.8.1.jar", 
+		"jena-2.5.5.jar", "jena-arq-2.5.5.jar", "jena-arq-extra-2.5.5.jar", "jena-iri-2.5.5.jar", 
+		"jena-json-2.5.5.jar"}	
+)
 public class GetXmlObject implements ExecutableComponent {
 
 	//INPUT
@@ -144,7 +155,8 @@ public class GetXmlObject implements ExecutableComponent {
 
 		    byte[] objectXML = APIM.getObjectXML(pid);
 		    String stringXML = new String(objectXML);
-		    cc.pushDataComponentToOutput(DATA_OUTPUT_1, objectXML);
+System.out.println(stringXML);
+		    cc.pushDataComponentToOutput(DATA_OUTPUT_1, stringXML);
 		 }
 		 catch (ComponentContextException ex1)
 		 {
