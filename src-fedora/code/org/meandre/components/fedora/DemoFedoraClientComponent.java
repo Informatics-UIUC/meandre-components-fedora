@@ -125,11 +125,11 @@ public class DemoFedoraClientComponent implements ExecutableComponent {
 	throws ComponentExecutionException, ComponentContextException
 	{
 		String fedoraURL = null;
-		String protocol = "https";
-		String host = "monk.lis.uiuc.edu";
-		String port = "443";
-		String user = "fedoraAdmin";
-		String pass = "treem0nkey";
+		String protocol = "http";
+		String host = "your.fedora.host.name";
+		String port = "007";
+		String user = "Your fedora login";
+		String pass = "Your fedora password";
 
 		logger.info("Firing DemoFedoraClientComponent");
 		try
