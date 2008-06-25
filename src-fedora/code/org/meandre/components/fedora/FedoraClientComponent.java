@@ -84,7 +84,8 @@ import org.meandre.components.fedora.support.FedoraConstants;
 		name="FedoraClientComponent",
 		tags="fedora client APIA APIM",
 		creator="Amit Kumar",
-		description="A client for interacting w/Fedora."
+		description="A client for interacting w/Fedora.",
+			dependency={"",""}
 		)
 public class FedoraClientComponent implements ExecutableComponent {
 
@@ -99,7 +100,7 @@ public class FedoraClientComponent implements ExecutableComponent {
 	description="The host name of the Fedora server.", 
 	name="HOST",
     defaultValue="localhost")
-	public static final String HOST = "HOST";
+	public static final String HOST = "HOST:PORT";
 	
 	@ComponentProperty(
 	description="The fedora port", name="PORT",
@@ -169,7 +170,7 @@ public class FedoraClientComponent implements ExecutableComponent {
 	{
 		String fedoraURL = null;
 		String protocol = "http";
-		String host = "localhost";
+		String host = "localhost:8080";
 		String port = "8080";
 		String user = "fedoraAdmin";
 		String pass = "fedoraAdminPassword";
@@ -186,6 +187,7 @@ public class FedoraClientComponent implements ExecutableComponent {
 
 
 			fedoraURL = protocol+"://"+host+":"+port+"/fedora";
+	
 			logger.info("FedoraURL: "+fedoraURL);
 
 			fclient = new FedoraClient(fedoraURL, user, pass);
