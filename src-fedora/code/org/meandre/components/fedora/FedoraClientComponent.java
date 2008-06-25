@@ -85,7 +85,17 @@ import org.meandre.components.fedora.support.FedoraConstants;
 		tags="fedora client APIA APIM",
 		creator="Amit Kumar",
 		description="A client for interacting w/Fedora.",
-			dependency={"",""}
+		dependency={"activation-1.0.2.jar", "axis.jar", "batik-all.jar", "commons-codec-1.3.jar",
+		"commons-dbcp-1.2.1.jar", "commons-discovery.jar", "commons-pool-1.2.jar",
+		"foxml-merge.xsl", "jai_codec.jar", "jai_core.jar", "java-getopt-1.0.11.jar",
+		"jaxrpc.jar", "jhbasic.jar", "jrdf-0.3.3.jar", "log4j-1.2.14.jar",
+		"mail.jar", "mets-merge.xsl", "saaj.jar", "saxon.jar",
+		"sunxacml-patched.jar", "trippi-1.1.2-core.jar", "wsdl4j-1.5.1.jar", "xercesImpl.jar",
+		"xml-apis.jar", "commons-httpclient-3.1.jar", "commons-logging-1.1.1.jar", 
+		"fedora-client.jar", "icu4j-3.8.1.jar", "icu4j-charsets-3.8.1.jar", "jarjar-1.0rc7.jar", 
+		"jena-2.5.5.jar", "jena-arq-2.5.5.jar", "jena-arq-extra-2.5.5.jar", "jena-iri-2.5.5.jar", 
+		"jena-json-2.5.5.jar", "meandre-annotation-1.3.jar", "meandre-component-devkit-1.0.5.jar", 
+		"meandre-core-1.3.jar"}
 		)
 public class FedoraClientComponent implements ExecutableComponent {
 
