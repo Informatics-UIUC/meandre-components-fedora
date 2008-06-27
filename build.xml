@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
     Generic Build script for a Meandre Components repository. This file
-    should be kept in sync with build-skel.xml,(TODO:which currently has no
+    should be kept in sync with build-skel.xml, (TODO:which currently has no
     permanent home.) 
 
     This build.xml provides targets useful in dealing with a repository of
@@ -38,6 +38,7 @@
         </copy>
 
     </target>
+
         
 
 
@@ -71,7 +72,7 @@
     -->
 
     <!-- Project structure -->
-    <property name="lib.dir" value="lib/jars"/>
+    <property name="lib.dir" value="lib/"/>
     <property name="build.dir" value="build/"/>
     <property name="classes.dir" value="${build.dir}/classes/"/>
     <property name="src.gen.dir" value="${build.dir}/src-gen/"/>
@@ -91,6 +92,9 @@
 
     <!-- Generated JAR location -->
     <property name="components.jar.file" value="${project.name}-components.jar"/>    
+    <!-- Generated upload script name -->
+    <property name="uploader.file" value="upload-${project.name}-components.sh"/>    
+
   
     <!--
     =================
@@ -160,6 +164,7 @@
     <target name="clean" description="-> removes build artifacts">
         <delete dir="${build.dir}"/>
         <delete dir="${test.root.dir}"/>
+        <delete dir="./log"/>
     </target>
 
     <!--
@@ -377,10 +382,9 @@
             <arg value="${src.copy.dir}"/>
             <arg value="${descriptors.dir}"/>
             <arg value="${dist.dir}/${components.jar.file}"/>
+            <arg value="${scripts.gen.dir}"/>
+            <arg value="${uploader.file}"/>
         </java>
-        <!--move the generated script to scripts_gen -->
-        <move file="scripts/upload.sh"
-              tofile="${scripts.gen.dir}/upload-components.sh"/>
     </target>
 
     <!--
@@ -390,7 +394,7 @@
             depends="create-upload-script"
             description="-> runs upload.sh script to upload the components to a Meandre-Infrastructure server running on localhost:1714>">
         <exec executable="sh">
-            <arg value="${scripts.gen.dir}/upload-components.sh"/>
+            <arg value="${scripts.gen.dir}/${uploader.file}"/>
         </exec>
     </target>
 
