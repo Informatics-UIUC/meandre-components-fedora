@@ -253,6 +253,11 @@ public class FedoraConstants {
 	
 	public static final String METHOD_NAME = "methodName";
 	
+	/* Header of a collection object in the fedora repository */
+	public static final String COLLECTION_PATTERN = "collection_pattern";
+	
+	/* List of collection objects from a fedora repository */
+	public static final String COLLECTION_OBJECTS = "collection_objets";
 	
 	
 	public FedoraConstants()
