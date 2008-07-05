@@ -102,16 +102,15 @@ public class GetXmlObject implements ExecutableComponent {
 	name=FedoraConstants.APIM)
 	final String DATA_INPUT_1 = FedoraConstants.APIM;
 
-	//PROPERTY
-	@ComponentProperty(
+	
+	@ComponentInput(
 	description = "The Fedora ID of the object to get.",
-	name = FedoraConstants.PID, 
-	defaultValue = "demo:5")
-	final static String PROPERTY1 = FedoraConstants.PID;
+	name = FedoraConstants.PID) 
+	final static String  DATA_INPUT_2 = FedoraConstants.PID;
 
 	//OUTPUT
 	@ComponentOutput(
-	description="The xml object.", 
+	description="The xml string.", 
 	name=FedoraConstants.OBJECT_XML)
 	final String DATA_OUTPUT_1=FedoraConstants.OBJECT_XML;
 	
@@ -149,13 +148,13 @@ public class GetXmlObject implements ExecutableComponent {
 		 {
 			logger.info("Getting one XML object...");
 
-			pid =  cc.getProperty(PROPERTY1);
-
+			pid = (String)cc.getDataComponentFromInput(DATA_INPUT_2);
+			
 			APIM = (FedoraAPIM) cc.getDataComponentFromInput(DATA_INPUT_1);
 
 		    byte[] objectXML = APIM.getObjectXML(pid);
 		    String stringXML = new String(objectXML);
-System.out.println(stringXML);
+		    System.out.println(stringXML);
 		    cc.pushDataComponentToOutput(DATA_OUTPUT_1, stringXML);
 		 }
 		 catch (ComponentContextException ex1)

@@ -101,13 +101,13 @@ public class DeleteObject implements ExecutableComponent {
 	name=FedoraConstants.APIM)
 	final String DATA_INPUT_1 = FedoraConstants.APIM;
 
-	//PROPERTY
-	@ComponentProperty(
+	
+	@ComponentInput(
 	description = "The fedora PID.",
-	name = FedoraConstants.PID, 
-	defaultValue = "test:100")
-	final static String PROPERTY1 = FedoraConstants.PID;
+	name = FedoraConstants.PID)
+	final static String DATA_INPUT_2 = FedoraConstants.PID;
 
+	//PROPERTY
 	@ComponentProperty(
 	description = "The message to write to the log when the component is deleted.",
 	name = FedoraConstants.LOG_MSG, 
@@ -161,7 +161,7 @@ public class DeleteObject implements ExecutableComponent {
 
 		try
 		{
-		   String pid = cc.getProperty(PROPERTY1);
+		   String pid = (String)cc.getDataComponentFromInput(DATA_INPUT_2);
            String log_msg = cc.getProperty(PROPERTY2);
            String instr = cc.getProperty(PROPERTY3);
            boolean forced = false;
@@ -176,7 +176,7 @@ public class DeleteObject implements ExecutableComponent {
            { forced = false; }
            else
            { throw new ComponentExecutionException("Invalid property 'forced' "); }
-
+           
 		   APIM = (FedoraAPIM) cc.getDataComponentFromInput(DATA_INPUT_1);
 
 		   String purgeDateTime = APIM.purgeObject(pid, log_msg, forced);

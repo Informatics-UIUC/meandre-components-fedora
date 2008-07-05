@@ -92,13 +92,20 @@ public class GetMonkObject implements ExecutableComponent
 	description="An APIA connection", 
 	name=FedoraConstants.APIA)
 	final String DATA_INPUT_1 = FedoraConstants.APIA;
+	
+	@ComponentInput(
+			description = "The fedora ID of the object to get",
+			name = FedoraConstants.PID)
+	final static String DATA_INPUT_2 = FedoraConstants.PID;
+	
+	@ComponentInput(
+			description = "The workpart ID",
+			name = "WorkpartID") 
+	final static String DATA_INPUT_3 = "WorkpartID";
+
+			
 
 	//PROPERTY
-	@ComponentProperty(
-	description = "The fedora ID of the object to get",
-	name = FedoraConstants.PID, 
-	defaultValue = "monk:ncf-22511")
-	final static String PROPERTY1 = FedoraConstants.PID;
 	
 	@ComponentProperty(
 	description = "The behavior definition ID",
@@ -112,12 +119,7 @@ public class GetMonkObject implements ExecutableComponent
 	defaultValue = "getChunk")
 	final static String PROPERTY3 = FedoraConstants.METHOD_NAME;
 	
-	@ComponentProperty(
-	description = "The workpart ID",
-	name = "WorkpartID", 
-	defaultValue = "ncf-22511-1")
-	final static String PROPERTY4 = "WorkpartID";
-
+	
 	//OUTPUT
 	@ComponentOutput(
 	description="The xml object", 
@@ -157,12 +159,12 @@ public class GetMonkObject implements ExecutableComponent
 		 try
 		 {
 			logger.info("Getting one XML object...");
-			String pid =  cc.getProperty(PROPERTY1);
 			String b_def_pid = cc.getProperty(PROPERTY2);
 			String method_name = cc.getProperty(PROPERTY3);
-			String workpartId = cc.getProperty(PROPERTY4);
-
+			
 			APIA = (FedoraAPIA) cc.getDataComponentFromInput(DATA_INPUT_1);
+			String pid =  (String)cc.getDataComponentFromInput(DATA_INPUT_2);
+			String workpartId = (String)cc.getDataComponentFromInput(DATA_INPUT_3);
 
 			Property propertiesArray[] = new Property[1];
 			propertiesArray[0] = new Property();
