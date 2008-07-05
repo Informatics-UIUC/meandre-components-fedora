@@ -80,7 +80,7 @@ import org.meandre.components.fedora.support.FedoraConstants;
  */
 
 @Component(
-		name="IngestSingleObject",
+		name="IngestStringAsObject",
 		tags="fedora ingest",
 		creator="Mary Pietrowicz",
 		description="Intests an object into a Fedora repository.",

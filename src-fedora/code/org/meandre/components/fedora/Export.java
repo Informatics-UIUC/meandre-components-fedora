@@ -104,14 +104,15 @@ public class Export implements ExecutableComponent
 	description="An APIM connection to fedora.", 
 	name=FedoraConstants.APIM)
 	final String DATA_INPUT_1 = FedoraConstants.APIM;
+	
+	@ComponentInput(
+			description = "The fedora PID.",
+			name = FedoraConstants.PID) 
+	final static String DATA_INPUT_2 = FedoraConstants.PID;
+
 
 	//PROPERTY
-	@ComponentProperty(
-	description = "The fedora PID.",
-	name = FedoraConstants.PID, 
-	defaultValue = "test:100")
-	final static String PROPERTY1 = FedoraConstants.PID;
-
+	
 	@ComponentProperty(
     description = "The xml format: valid values are foxml1.0 or metslikefedora1",
     name = FedoraConstants.FORMAT,
@@ -168,8 +169,8 @@ public class Export implements ExecutableComponent
 
 		try
 		{
-			APIM = (FedoraAPIM) cc.getDataComponentFromInput(FedoraConstants.APIM);
-			String pid =  cc.getProperty(FedoraConstants.PID);
+			APIM = (FedoraAPIM) cc.getDataComponentFromInput(DATA_INPUT_1);
+			String pid =  (String)cc.getDataComponentFromInput(DATA_INPUT_2);
 			String format = cc.getProperty(FedoraConstants.FORMAT);
 			String context = cc.getProperty(FedoraConstants.CONTEXT);
 

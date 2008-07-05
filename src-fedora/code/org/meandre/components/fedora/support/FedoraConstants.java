@@ -195,7 +195,7 @@ public class FedoraConstants {
 	// Start:  Valid FORMAT values
 
 	/* the foxml format */
-	public static final String FOXML = "foxml1.0";
+	public static final String FOXML = "info:fedora/fedora-system:FOXML-1.1";
 	/* the mets format */
 	public static final String METS = "metslikefedora1";
 	

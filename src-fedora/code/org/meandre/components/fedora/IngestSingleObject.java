@@ -102,14 +102,6 @@ public class IngestSingleObject implements ExecutableComponent {
 	description="APIM connection", 
 	name=FedoraConstants.APIM)
 	final String DATA_INPUT_1 = FedoraConstants.APIM;
-	
-
-	@ComponentInput(
-	description = "Pathname to file to ingest",
-	name = FedoraConstants.INGEST_FILE)
-	final static String DATA_INPUT_2 = FedoraConstants.INGEST_FILE;	
-	
-	
 
 	//PROPERTY
 	@ComponentProperty(
@@ -117,6 +109,12 @@ public class IngestSingleObject implements ExecutableComponent {
 	name = FedoraConstants.FORMAT, 
 	defaultValue = FedoraConstants.FOXML)
 	final static String PROPERTY1 = FedoraConstants.FORMAT;	
+	
+	@ComponentProperty(
+	description = "Pathname to file to ingest",
+	name = FedoraConstants.INGEST_FILE, 
+	defaultValue = "/fedora/obj_test_100.xml")
+	final static String PROPERTY2 = FedoraConstants.INGEST_FILE;	
 	
 	//OUTPUT
 	@ComponentOutput(
@@ -144,7 +142,7 @@ public class IngestSingleObject implements ExecutableComponent {
 
 		     APIM = (FedoraAPIM) cc.getDataComponentFromInput(DATA_INPUT_1);
 		     String ingest_format = cc.getProperty(PROPERTY1);
-		     String ingest_file_name = (String)cc.getDataComponentFromInput(DATA_INPUT_2);
+		     String ingest_file_name = cc.getProperty(PROPERTY2);
 
 		     logger.info("Ingesting "+ingest_file_name);
 		     File ingest_file = new File(ingest_file_name);
