@@ -266,7 +266,8 @@ public class FedoraConstants {
 	// Super collection that is the parent of all other collections
 	public static final String SUPER_COLLECTION="info:fedora/monk:collection";
 
-	
+	// Fedora work objects
+	public static final String WORK_OBJECTS = "work_objects";
 	
 	public FedoraConstants()
 	{}
