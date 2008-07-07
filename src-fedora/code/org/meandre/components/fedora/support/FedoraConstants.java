@@ -257,7 +257,12 @@ public class FedoraConstants {
 	public static final String COLLECTION_PATTERN = "collection_pattern";
 	
 	/* List of collection objects from a fedora repository */
-	public static final String COLLECTION_OBJECTS = "collection_objets";
+	public static final String COLLECTION_OBJECTS = "collection_objects";
+	
+	/*The predicate that defines collection memebership*/
+	public static final String COLLECTION_PREDICATE="info:fedora/fedora-system:def/relations-external#isMemberOfCollection";
+
+
 	
 	
 	public FedoraConstants()

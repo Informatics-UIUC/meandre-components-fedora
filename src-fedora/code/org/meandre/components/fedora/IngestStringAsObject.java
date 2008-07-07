@@ -145,7 +145,14 @@ public class IngestStringAsObject implements ExecutableComponent {
 		     APIM = (FedoraAPIM) cc.getDataComponentFromInput(DATA_INPUT_1);
 		     String ingest_format = cc.getProperty(PROPERTY1);
 		     String ingest_string = (String)cc.getDataComponentFromInput(DATA_INPUT_2);
-
+		     File file = new File(System.getProperty("java.io.tmpdir")+File.separator + System.currentTimeMillis()+".xml");
+		     BufferedWriter bfw = new BufferedWriter(new FileWriter(file));
+		     
+		     bfw.write(ingest_string);
+		     bfw.flush();
+		     bfw.close();
+		     
+		     
 		     logger.info("Ingesting "+ingest_string.length());
 		     String log_message = "Ingesting string "+ ingest_string.length();
 		     String pid = APIM.ingest(ingest_string.getBytes(), ingest_format, log_message);
@@ -161,7 +168,7 @@ public class IngestStringAsObject implements ExecutableComponent {
 		}
 		catch (Throwable th)
 		{
-			logger.severe("Error in IngestSingleObject:  "+th.getMessage());
+			logger.severe("Error in IngestSingleObject:  "+th.getMessage() +" file created  " );
 			throw new ComponentExecutionException(th);
 		}		
 	  }
