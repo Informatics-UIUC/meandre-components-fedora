@@ -91,7 +91,6 @@ public class GetWorkObjects implements ExecutableComponent
     /* The logger object to use for output. */
 	private static Logger logger = null;
 	
-	
 	public void initialize(ComponentContextProperties ccp)
 	{
     	logger = ccp.getLogger();
