@@ -261,7 +261,10 @@ public class FedoraConstants {
 	
 	/*The predicate that defines collection memebership*/
 	public static final String COLLECTION_PREDICATE="info:fedora/fedora-system:def/relations-external#isMemberOfCollection";
+	public static final String SUPER_COLLECTION_PREDICATE = "info:fedora/fedora-system:def/relations-external#isMemberOfCollection";
 
+	// Super collection that is the parent of all other collections
+	public static final String SUPER_COLLECTION="info:fedora/monk:collection";
 
 	
 	
